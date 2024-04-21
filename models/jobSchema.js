@@ -1,6 +1,12 @@
 import mongoose from "mongoose";
 
 const jobSchema = new mongoose.Schema({
+  company: {
+    type: String, Number,
+    required: [ true, "Please provide a Company name." ],
+    minLength: [ 2, "Company name must contain at least 2 Characters!"],
+    maxLength: [ 50, "Company name cannot exceed 50 Characters!" ]
+  },
   title: {
     type: String,
     required: [true, "Please provide a title."],
@@ -40,12 +46,12 @@ const jobSchema = new mongoose.Schema({
     minLength: [4, "Salary must contain at least 4 digits"],
     maxLength: [9, "Salary cannot exceed 9 digits"],
   },
-  salaryTo: {
+salaryTo: {
     type: Number,
     minLength: [4, "Salary must contain at least 4 digits"],
     maxLength: [9, "Salary cannot exceed 9 digits"],
   },
-  expired: {
+  expired: {  
     type: Boolean,
     default: false,
   },
